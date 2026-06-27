@@ -8,20 +8,21 @@ client = anthropic.Anthropic(
 )
 
 THEMES = [
-    {"ja": "今週の世界経済の動向と日本への影響", "en": "world economy japan"},
-    {"ja": "太陽光発電の最新トレンドと導入メリット", "en": "solar panel energy"},
-    {"ja": "電気代を節約するための実践的な方法", "en": "electricity saving home"},
-    {"ja": "再生可能エネルギーの普及と日本の未来", "en": "renewable energy future"},
-    {"ja": "円安・円高が家庭の電気代に与える影響", "en": "japan economy currency"},
-    {"ja": "太陽光パネルの選び方と注意点", "en": "solar panel installation"},
-    {"ja": "蓄電池と太陽光発電の組み合わせ効果", "en": "battery storage solar"},
-    {"ja": "世界のエネルギー政策と日本の立ち位置", "en": "energy policy global"},
-    {"ja": "電力自由化で変わった電気代の仕組み", "en": "electricity market reform"},
-    {"ja": "太陽光発電の売電と自家消費どちらがお得か", "en": "solar energy savings"},
+    {"ja": "今週の世界経済の動向と日本への影響", "en": "worldeconomyjapan"},
+    {"ja": "太陽光発電の最新トレンドと導入メリット", "en": "solarpanelenergy"},
+    {"ja": "電気代を節約するための実践的な方法", "en": "electricitysavinghome"},
+    {"ja": "再生可能エネルギーの普及と日本の未来", "en": "renewableenergyfuture"},
+    {"ja": "円安・円高が家庭の電気代に与える影響", "en": "japaneconomycurrency"},
+    {"ja": "太陽光パネルの選び方と注意点", "en": "solarinstallation"},
+    {"ja": "蓄電池と太陽光発電の組み合わせ効果", "en": "batterystorage"},
+    {"ja": "世界のエネルギー政策と日本の立ち位置", "en": "energypolicyglobal"},
+    {"ja": "電力自由化で変わった電気代の仕組み", "en": "electricitymarket"},
+    {"ja": "太陽光発電の売電と自家消費どちらがお得か", "en": "solarenergysavings"},
 ]
 
 def get_image_url(keyword):
-   return f"https://picsum.photos/seed/{keyword.replace(' ', '')}/1200/630"
+    seed = abs(hash(keyword)) % 1000
+    return f"https://picsum.photos/seed/{seed}/1200/630"
 
 def generate_article(theme_ja):
     today = datetime.date.today().strftime("%Y年%m月%d日")
@@ -50,32 +51,37 @@ def generate_article(theme_ja):
     )
     return message.content[0].text
 
-def save_post(theme, content, image_url):
+def save_post(theme, content):
     today = datetime.date.today()
     date_str = today.strftime("%Y-%m-%d")
     filename = f"_posts/{date_str}-post.md"
-    front_matter = f"""---
-layout: post
-title: "{theme['ja']}"
-date: {date_str}
-categories: [エネルギー, 経済]
-image: "{image_url}"
----
 
-![記事のイメージ画像]({image_url})
+    image_url = get_image_url(theme["en"])
 
-"""
+    front_matter = (
+        "---\n"
+        "layout: post\n"
+        f'title: "{theme["ja"]}"\n'
+        f"date: {date_str}\n"
+        "categories: [エネルギー, 経済]\n"
+        f'image: "{image_url}"\n'
+        "---\n\n"
+    )
+
+    image_tag = f"![記事のイメージ画像]({image_url})\n\n"
+
     os.makedirs("_posts", exist_ok=True)
     with open(filename, "w", encoding="utf-8") as f:
-        f.write(front_matter + content)
+        f.write(front_matter + image_tag + content)
+
     print(f"記事を保存しました：{filename}")
+    print(f"画像URL：{image_url}")
     return filename
 
 if __name__ == "__main__":
     print("記事を生成中...")
     theme = random.choice(THEMES)
     print(f"テーマ：{theme['ja']}")
-    image_url = get_image_url(theme['en'])
-    content = generate_article(theme['ja'])
-    save_post(theme, content, image_url)
+    content = generate_article(theme["ja"])
+    save_post(theme, content)
     print("完了！")
