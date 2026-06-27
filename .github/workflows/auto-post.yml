@@ -1,36 +1,25 @@
-amlname: auto-post
-
+yamlname: auto-post
 on:
   schedule:
     - cron: '0 0 * * *'
   workflow_dispatch:
-
 jobs:
   generate-post:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - name: checkout
-        uses: actions/checkout@v4
-
-      - name: setup python
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-
-      - name: install dependencies
-        run: pip install anthropic
-
-      - name: generate post
+      - run: pip install anthropic
+      - run: python scripts/generate_post.py
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: python scripts/generate_post.py
-
-      - name: commit and push
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Actions Bot"
+      - run: |
+          git config user.email "action@github.com"
+          git config user.name "bot"
           git add _posts/
-          git diff --staged --quiet || git commit -m "auto post $(date '+%Y-%m-%d')"
+          git diff --staged --quiet || git commit -m "post $(date '+%Y-%m-%d')"
           git push
