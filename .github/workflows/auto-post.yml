@@ -1,4 +1,4 @@
-yamlname: auto-post
+name: auto-post
 on:
   schedule:
     - cron: '0 0 * * *'
