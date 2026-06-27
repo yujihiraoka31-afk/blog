@@ -10,6 +10,3 @@ show_excerpts: true
 
 plugins:
   - jekyll-feed
-
-⑤ 右上の緑「Commit changes...」ボタンをクリック
-⑥ ポップアップが出たら「Commit changes」をクリック
