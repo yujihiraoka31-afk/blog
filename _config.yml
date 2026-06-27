@@ -1,0 +1,15 @@
+title: "経済と暮らしのエネルギーブログ"
+description: "世界経済・太陽光・電気代の最新情報をお届けします"
+theme: minima
+lang: ja
+
+author:
+  name: "裕平岡"
+
+show_excerpts: true
+
+plugins:
+  - jekyll-feed
+
+⑤ 右上の緑「Commit changes...」ボタンをクリック
+⑥ ポップアップが出たら「Commit changes」をクリック
