@@ -21,7 +21,7 @@ THEMES = [
 ]
 
 def get_image_url(keyword):
-    return f"https://source.unsplash.com/1200x630/?{keyword.replace(' ', ',')}"
+   return f"https://picsum.photos/seed/{keyword.replace(' ', '')}/1200/630"
 
 def generate_article(theme_ja):
     today = datetime.date.today().strftime("%Y年%m月%d日")
