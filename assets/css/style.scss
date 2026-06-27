@@ -1,0 +1,141 @@
+css---
+---
+
+@import "{{ site.theme }}";
+
+/* ベースカラー設定 */
+:root {
+  --orange: #f97316;
+  --orange-dark: #c2410c;
+  --bg-dark: #0f172a;
+  --bg-card: #1e293b;
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+}
+
+/* 全体背景 */
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Helvetica Neue', Arial, 'Hiragino Sans', sans-serif;
+  line-height: 1.8;
+}
+
+/* ヘッダー */
+.site-header {
+  background-color: #0a0f1e;
+  border-bottom: 3px solid var(--orange);
+  padding: 16px 0;
+}
+
+.site-title {
+  color: var(--orange) !important;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.site-nav .page-link {
+  color: var(--text-muted) !important;
+}
+
+.site-nav .page-link:hover {
+  color: var(--orange) !important;
+}
+
+/* 記事一覧カード */
+.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.post-list li {
+  background: var(--bg-card);
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border: 1px solid #334155;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.post-list li:hover {
+  transform: translateY(-4px);
+  border-color: var(--orange);
+}
+
+.post-list h3 a {
+  color: var(--text-main) !important;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.post-list h3 a:hover {
+  color: var(--orange) !important;
+}
+
+.post-meta {
+  color: var(--orange) !important;
+  font-size: 0.85rem;
+}
+
+/* 記事本文 */
+.post-content {
+  color: var(--text-main);
+}
+
+.post-content h1 {
+  color: var(--orange);
+  font-size: 2rem;
+  font-weight: 800;
+  border-bottom: 2px solid var(--orange);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.post-content h2 {
+  color: var(--orange);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  padding-left: 1rem;
+  border-left: 4px solid var(--orange);
+}
+
+.post-content h3 {
+  color: #fb923c;
+  font-size: 1.2rem;
+}
+
+.post-content a {
+  color: var(--orange);
+}
+
+.post-content img {
+  width: 100%;
+  border-radius: 12px;
+  margin: 1.5rem 0;
+  border: 1px solid #334155;
+}
+
+.post-content p {
+  color: #cbd5e1;
+  margin-bottom: 1.2rem;
+}
+
+/* フッター */
+.site-footer {
+  background-color: #0a0f1e;
+  border-top: 2px solid var(--orange);
+  color: var(--text-muted);
+}
+
+/* ページタイトル */
+.page-heading {
+  color: var(--orange);
+}
+
+.post-title {
+  color: var(--orange) !important;
+}
