@@ -1,38 +1,36 @@
-amlname: 毎日自動ブログ投稿
+amlname: auto-post
 
 on:
   schedule:
-    # 毎朝9時（日本時間）に自動実行
-    # UTC で 0時 = 日本時間 9時
     - cron: '0 0 * * *'
-  # 手動でもテスト実行できるようにする
   workflow_dispatch:
 
 jobs:
   generate-post:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write
     steps:
-      - name: リポジトリを取得
+      - name: checkout
         uses: actions/checkout@v4
 
-      - name: Python をセットアップ
+      - name: setup python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
-      - name: 必要なライブラリをインストール
-        run: pip install -r requirements.txt
+      - name: install dependencies
+        run: pip install anthropic
 
-      - name: 記事を自動生成
+      - name: generate post
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python scripts/generate_post.py
 
-      - name: 生成した記事を保存
+      - name: commit and push
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Actions Bot"
           git add _posts/
-          git diff --staged --quiet || git commit -m "自動投稿: $(date '+%Y-%m-%d')"
+          git diff --staged --quiet || git commit -m "auto post $(date '+%Y-%m-%d')"
           git push
