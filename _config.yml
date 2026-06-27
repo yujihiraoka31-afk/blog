@@ -2,9 +2,17 @@ title: "経済と暮らしのエネルギーブログ"
 description: "世界経済・太陽光・電気代の最新情報をお届けします"
 theme: minima
 lang: ja
-author: "UG"
+author: "勇平岡"
 show_excerpts: true
+
 plugins:
   - jekyll-feed
+
 minima:
   skin: dark
+  social_links:
+    - { platform: instagram, user_url: "https://www.instagram.com/techno__home__" }
+
+exclude:
+  - scripts/
+  - requirements.txt
