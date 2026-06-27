@@ -1,10 +1,7 @@
 ---
 layout: home
 title: トップページ
----
-
-世界経済・太陽光・電気代に関する情報を毎日お届けします。
-
+list_title: 最新記事
 ---
 
 <div style="text-align:center; margin: 2rem 0;">
