@@ -1,0 +1,98 @@
+---
+---
+
+@import "minima";
+
+body {
+  background-color: #0f172a !important;
+  color: #f1f5f9 !important;
+}
+
+.site-header {
+  background-color: #0a0f1e !important;
+  border-bottom: 3px solid #f97316 !important;
+}
+
+.site-title, .site-title:visited {
+  color: #f97316 !important;
+  font-weight: 800 !important;
+}
+
+.site-nav .page-link {
+  color: #94a3b8 !important;
+}
+
+.post-list li {
+  background: #1e293b !important;
+  border-radius: 12px !important;
+  padding: 1.5rem !important;
+  margin-bottom: 2rem !important;
+  border: 1px solid #334155 !important;
+}
+
+.post-list h3 a {
+  color: #f1f5f9 !important;
+  text-decoration: none !important;
+}
+
+.post-list h3 a:hover {
+  color: #f97316 !important;
+}
+
+.post-meta {
+  color: #f97316 !important;
+}
+
+.post-content h1 {
+  color: #f97316 !important;
+  border-bottom: 2px solid #f97316 !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.post-content h2 {
+  color: #f97316 !important;
+  border-left: 4px solid #f97316 !important;
+  padding-left: 1rem !important;
+}
+
+.post-content h3 {
+  color: #fb923c !important;
+}
+
+.post-content p {
+  color: #cbd5e1 !important;
+  line-height: 1.9 !important;
+}
+
+.post-content img {
+  width: 100% !important;
+  border-radius: 12px !important;
+  margin: 1.5rem 0 !important;
+}
+
+.post-content a {
+  color: #f97316 !important;
+}
+
+.site-footer {
+  background-color: #0a0f1e !important;
+  border-top: 2px solid #f97316 !important;
+  color: #94a3b8 !important;
+}
+
+.page-heading, .post-title {
+  color: #f97316 !important;
+}
+
+.wrapper {
+  max-width: 860px !important;
+}
+
+/* RSS購読リンク・著者名の非表示（実DOMのクラス名を確認済み: .rss-subscribe, .p-name） */
+.rss-subscribe {
+  display: none !important;
+}
+
+.site-footer .p-name {
+  display: none !important;
+}

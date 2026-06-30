@@ -1,7 +1,0 @@
-/* RSS購読リンクを完全非表示 */
-.feed-subscribe,
-.rss-subscribe,
-p.rss-subscribe,
-a[href*="feed.xml"] {
-  display: none !important;
-}

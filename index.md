@@ -4,6 +4,12 @@ title: トップページ
 list_title: 最新記事
 ---
 
+<!--
+  ヘッダー画像・記事一覧（Posts）は _layouts/home.html 側で
+  「画像 → 記事一覧 → 以下のコンテンツ」の順にレンダリングしている。
+  CLAUDE.md §10 のレイアウト骨格（画像→記事→SNS→フォーム）と対応。
+-->
+
 <div style="text-align:center; margin: 2rem 0;">
   <p style="color:#f97316; font-weight:bold; font-size:1.1rem;">
     📱 テクノホームの公式SNS・サイトはこちら
