@@ -1,16 +1,7 @@
-/* RSS・著者名を非表示 */
-.feed-subscribe {
-  display: none !important;
-}
-
-.post-list .post-meta .p-author {
-  display: none !important;
-}
-
-footer .p-name {
-  display: none !important;
-}
-
-.site-footer .p-name {
+/* RSS購読リンクを完全非表示 */
+.feed-subscribe,
+.rss-subscribe,
+p.rss-subscribe,
+a[href*="feed.xml"] {
   display: none !important;
 }
