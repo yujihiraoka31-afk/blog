@@ -1,8 +1,15 @@
----
+markdown---
 layout: home
 title: トップページ
 list_title: 最新記事
 ---
+
+<div style="margin: -1rem -1rem 2rem -1rem;">
+  <img src="https://picsum.photos/seed/solarenergy2026/1600/500"
+       alt="太陽光・経済ブログ ヘッダー画像"
+       style="width:100%; height:320px; object-fit:cover;
+              border-radius:0 0 16px 16px;">
+</div>
 
 <div style="text-align:center; margin: 2rem 0;">
   <p style="color:#f97316; font-weight:bold; font-size:1.1rem;">
