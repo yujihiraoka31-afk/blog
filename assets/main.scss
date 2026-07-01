@@ -3,14 +3,19 @@
 
 @import "minima";
 
+/* ========== ベースカラー: 白×オレンジ ========== */
+
 body {
-  background-color: #0f172a !important;
-  color: #f1f5f9 !important;
+  background-color: #ffffff !important;
+  color: #1a1a1a !important;
 }
 
+/* ヘッダー */
 .site-header {
-  background-color: #0a0f1e !important;
+  background-color: #ffffff !important;
+  border-top: none !important;
   border-bottom: 3px solid #f97316 !important;
+  box-shadow: 0 2px 8px rgba(249,115,22,0.15) !important;
 }
 
 .site-title, .site-title:visited {
@@ -19,48 +24,68 @@ body {
 }
 
 .site-nav .page-link {
-  color: #94a3b8 !important;
+  color: #f97316 !important;
+  font-weight: 600 !important;
+}
+
+/* 記事一覧カード */
+.post-list {
+  list-style: none !important;
+  margin-left: 0 !important;
 }
 
 .post-list li {
-  background: #1e293b !important;
+  background: #fff7ed !important;
   border-radius: 12px !important;
-  padding: 1.5rem !important;
-  margin-bottom: 2rem !important;
-  border: 1px solid #334155 !important;
+  padding: 1.4rem 1.6rem !important;
+  margin-bottom: 1.5rem !important;
+  border: 1.5px solid #fed7aa !important;
+  box-shadow: 0 2px 8px rgba(249,115,22,0.08) !important;
+  transition: box-shadow 0.2s !important;
 }
 
-.post-list h3 a {
-  color: #f1f5f9 !important;
+.post-list li:hover {
+  box-shadow: 0 4px 18px rgba(249,115,22,0.18) !important;
+}
+
+.post-list h3 a, .post-link {
+  color: #1a1a1a !important;
   text-decoration: none !important;
+  font-weight: 700 !important;
 }
 
-.post-list h3 a:hover {
+.post-list h3 a:hover, .post-link:hover {
   color: #f97316 !important;
 }
 
 .post-meta {
   color: #f97316 !important;
+  font-weight: 600 !important;
 }
 
+/* 記事本文 */
 .post-content h1 {
-  color: #f97316 !important;
+  color: #ea6c00 !important;
   border-bottom: 2px solid #f97316 !important;
-  padding-bottom: 0.5rem !important;
+  padding-bottom: 0.4rem !important;
 }
 
 .post-content h2 {
-  color: #f97316 !important;
+  color: #ea6c00 !important;
   border-left: 4px solid #f97316 !important;
-  padding-left: 1rem !important;
+  padding-left: 0.8rem !important;
+  background: #fff7ed !important;
+  padding-top: 0.3rem !important;
+  padding-bottom: 0.3rem !important;
+  border-radius: 0 6px 6px 0 !important;
 }
 
 .post-content h3 {
-  color: #fb923c !important;
+  color: #c2410c !important;
 }
 
 .post-content p {
-  color: #cbd5e1 !important;
+  color: #374151 !important;
   line-height: 1.9 !important;
 }
 
@@ -68,19 +93,27 @@ body {
   width: 100% !important;
   border-radius: 12px !important;
   margin: 1.5rem 0 !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1) !important;
 }
 
 .post-content a {
   color: #f97316 !important;
+  text-decoration: underline !important;
 }
 
+/* フッター */
 .site-footer {
-  background-color: #0a0f1e !important;
-  border-top: 2px solid #f97316 !important;
-  color: #94a3b8 !important;
+  background-color: #fff7ed !important;
+  border-top: 2px solid #fed7aa !important;
+  color: #6b7280 !important;
 }
 
-.page-heading, .post-title {
+.site-footer a {
+  color: #f97316 !important;
+}
+
+/* ページタイトル */
+.page-heading, .post-title, .post-list-heading {
   color: #f97316 !important;
 }
 
@@ -88,7 +121,7 @@ body {
   max-width: 860px !important;
 }
 
-/* RSS購読リンク・著者名の非表示（実DOMのクラス名を確認済み: .rss-subscribe, .p-name） */
+/* RSS購読リンク非表示 */
 .rss-subscribe {
   display: none !important;
 }
